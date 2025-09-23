@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEROMERGE - DEFY GRAVITY | Premium Athletic Footwear</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <h1>AEROMERGE</h1>
+                    <span class="header__tagline">DEFY GRAVITY</span>
+                </div>
+                
+                <nav class="header__nav">
+                    <ul class="nav-links">
+                        <li><a href="#" data-page="home" class="nav-link">Home</a></li>
+                        <li><a href="#" data-page="products" class="nav-link">Products</a></li>
+                        <li><a href="#" data-page="about" class="nav-link">About</a></li>
+                        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search shoes..." id="searchInput">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="cart-icon" id="cartIcon">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <div class="cart-dropdown" id="cartDropdown">
+                        <div class="cart-dropdown__header">Shopping Cart</div>
+                        <div class="cart-dropdown__items" id="cartDropdownItems">
+                            <div class="cart-empty">Your cart is empty</div>
+                        </div>
+                        <div class="cart-dropdown__footer">
+                            <button class="btn btn--primary btn--sm" id="viewCartBtn">View Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <div class="page" id="homePage" data-page="home">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h2 class="hero__title">DEFY GRAVITY</h2>
+                        <p class="hero__subtitle">Experience the future of athletic footwear with AEROMERGE's revolutionary shoe technology.</p>
+                        <button class="btn btn--primary btn--lg hero__cta" data-page="products">Shop Now</button>
+                    </div>
+                    <div class="hero__image">
+                        <div class="hero__shoe-mockup">👟</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <div class="container">
+                    <h2 class="section-title">Featured Products</h2>
+                    <div class="products-grid" id="featuredProductsGrid">
+                        <!-- Products will be dynamically loaded -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories -->
+            <section class="categories">
+                <div class="container">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <div class="categories-grid">
+                        <div class="category-card" data-category="lifestyle">
+                            <div class="category-card__icon">👟</div>
+                            <h3>Lifestyle</h3>
+                            <p>Comfortable everyday shoes</p>
+                        </div>
+                        <div class="category-card" data-category="sneakers">
+                            <div class="category-card__icon">🏃</div>
+                            <h3>Sneakers</h3>
+                            <p>High-performance athletic footwear</p>
+                        </div>
+                        <div class="category-card" data-category="racing">
+                            <div class="category-card__icon">⚡</div>
+                            <h3>Racing</h3>
+                            <p>Speed-focused performance shoes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brand Story -->
+            <section class="brand-story">
+                <div class="container">
+                    <div class="brand-story__content">
+                        <h2>Our Mission</h2>
+                        <p>AEROMERGE represents the fusion of cutting-edge technology and bold design. We believe that exceptional footwear should not only perform at the highest level but also inspire confidence and express individual style. Our mission is to help athletes and sneaker enthusiasts defy gravity and push beyond their limits.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <div class="container">
+                    <div class="newsletter__content">
+                        <h2>Stay Updated</h2>
+                        <p>Get the latest updates on new releases, exclusive offers, and more.</p>
+                        <form class="newsletter__form" id="newsletterForm">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Products Page -->
+        <div class="page hidden" id="productsPage" data-page="products">
+            <div class="container">
+                <div class="products-header">
+                    <h1>Our Products</h1>
+                    <div class="products-controls">
+                        <div class="filters">
+                            <select id="categoryFilter" class="form-control">
+                                <option value="">All Categories</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="sneakers">Sneakers</option>
+                                <option value="racing">Racing</option>
+                            </select>
+                            <select id="sortFilter" class="form-control">
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="popularity">Popularity</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-grid" id="allProductsGrid">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page hidden" id="aboutPage" data-page="about">
+            <div class="container">
+                <div class="about-hero">
+                    <h1>About AEROMERGE</h1>
+                    <p class="about-hero__subtitle">To liberate human potential through gravity-defying footwear technology, enabling athletes and adventurers to transcend physical limitations while maintaining uncompromising style.</p>
+                </div>
+                
+                <section class="about-section">
+                    <div class="about-grid">
+                        <div class="about-content">
+                            <h2>Our Story</h2>
+                            <p>Founded in 2019 by a team of former NASA engineers and avant-garde designers who witnessed humanity's limitations and dreamed of defying them. After years of developing anti-gravity propulsion systems for spacecraft, Dr. Elena Vasquez, Marcus Chen, and Prof. Raj Patel turned their expertise earthward to revolutionize human movement.</p>
+                        </div>
+                        <div class="about-image">
+                            <div class="about-visual">🚀</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Our Technology</h2>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h3>Quantum Sole Technology™</h3>
+                            <p>Revolutionary anti-gravity propulsion system integrated into lightweight, breathable footwear</p>
+                            <div class="tech-stats">
+                                <span>47 Patents</span>
+                            </div>
+                        </div>
+                        <div class="tech-card">
+                            <h3>Research Partners</h3>
+                            <ul>
+                                <li>European Space Agency</li>
+                                <li>MIT Innovation Lab</li>
+                                <li>Stanford Biomechanics Institute</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Our Values</h2>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <h3>Innovation Beyond Boundaries</h3>
+                        </div>
+                        <div class="value-item">
+                            <h3>Sustainable Future Technology</h3>
+                        </div>
+                        <div class="value-item">
+                            <h3>Performance Without Compromise</h3>
+                        </div>
+                        <div class="value-item">
+                            <h3>Inclusive Design Philosophy</h3>
+                        </div>
+                        <div class="value-item">
+                            <h3>Transparency in Manufacturing</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Achievements Timeline</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2020</div>
+                            <div class="timeline-content">First shoes worn in zero gravity aboard ISS</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-content">Innovation Award from Global Design Council</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-content">Partnership with Olympic Training Centers</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-content">Sustainable Manufacturing Excellence Award</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-content">Featured in Time's 'Inventions of the Year'</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">Selected for Mars Colony Preparation Program</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section sustainability">
+                    <h2>Sustainability Commitment</h2>
+                    <div class="sustainability-grid">
+                        <div class="sustainability-item">
+                            <h3>Materials</h3>
+                            <p>75% recycled spacecraft-grade materials</p>
+                        </div>
+                        <div class="sustainability-item">
+                            <h3>Manufacturing</h3>
+                            <p>Carbon-neutral facilities powered by renewable energy</p>
+                        </div>
+                        <div class="sustainability-item">
+                            <h3>Recycling Program</h3>
+                            <p>Return old pairs for credit toward new purchases</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Future Vision</h2>
+                    <p class="future-vision">By 2030, we envision a world where gravity is merely a suggestion. Our research into multi-planetary footwear will enable the first human settlements on Mars, while our Earth-based innovations continue to shatter athletic records and redefine human movement.</p>
+                </section>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page hidden" id="contactPage" data-page="contact">
+            <div class="container">
+                <div class="contact-hero">
+                    <h1>Get in Touch</h1>
+                    <p>Experience the future of customer service with our multi-dimensional support system</p>
+                </div>
+
+                <section class="contact-info">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <h3>🏢 Headquarters</h3>
+                            <div class="contact-details">
+                                <p><strong>AEROMERGE Neo-Tech Campus</strong></p>
+                                <p>2077 Quantum Boulevard<br>Innovation District<br>Neo Francisco, CA 94105<br>United States</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h3>📞 Contact Numbers</h3>
+                            <div class="contact-details">
+                                <p><strong>Customer Service:</strong> +1 (555) GRAVITY</p>
+                                <p><strong>Sales:</strong> +1 (555) DEFYING</p>
+                                <p><strong>Returns:</strong> +1 (555) SUPPORT</p>
+                                <p><strong>AR Consultation:</strong> +1 (555) HOLO-FIT</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>📧 Email Departments</h3>
+                            <div class="contact-details">
+                                <p><strong>General:</strong> hello@aeromerge.com</p>
+                                <p><strong>Support:</strong> support@aeromerge.com</p>
+                                <p><strong>Sales:</strong> sales@aeromerge.com</p>
+                                <p><strong>Partnerships:</strong> partners@aeromerge.com</p>
+                                <p><strong>Media:</strong> press@aeromerge.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>🕐 Service Hours</h3>
+                            <div class="contact-details">
+                                <p><strong>24/7 Customer Service</strong><br>with AI-Enhanced Support</p>
+                                <p>Holographic consultations available by appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="global-locations">
+                    <h2>Global Presence</h2>
+                    <div class="locations-grid">
+                        <div class="location-item">
+                            <h4>Neo Francisco Flagship Store</h4>
+                            <p>Main retail experience center</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>Tokyo Gravity Lab</h4>
+                            <p>Research & Development facility</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>London Design Studio</h4>
+                            <p>Creative design headquarters</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>Berlin Performance Center</h4>
+                            <p>Athletic testing facility</p>
+                        </div>
+                        <div class="location-item">
+                            <h4>Sydney Innovation Hub</h4>
+                            <p>Future technology development</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Send Message</button>
+                    </form>
+                </section>
+
+                <section class="social-section">
+                    <h2>Connect With Us</h2>
+                    <div class="social-grid">
+                        <a href="#" target="_blank" class="social-link">
+                            <span>📱</span>
+                            <div>
+                                <h4>Instagram</h4>
+                                <p>@aeromerge_official</p>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <span>🐦</span>
+                            <div>
+                                <h4>Twitter</h4>
+                                <p>@AeromergeShoes</p>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <span>🎵</span>
+                            <div>
+                                <h4>TikTok</h4>
+                                <p>@aeromerge</p>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <span>📺</span>
+                            <div>
+                                <h4>YouTube</h4>
+                                <p>Aeromerge Technologies</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Single Product Page -->
+        <div class="page hidden" id="productPage" data-page="product">
+            <div class="container">
+                <div class="product-details" id="productDetails">
+                    <!-- Product details will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart Page -->
+        <div class="page hidden" id="cartPage" data-page="cart">
+            <div class="container">
+                <h1>Shopping Cart</h1>
+                <div class="cart-content">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be dynamically loaded -->
+                    </div>
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        <div class="cart-totals">
+                            <div class="cart-total-row">
+                                <span>Subtotal:</span>
+                                <span id="cartSubtotal">€0.00</span>
+                            </div>
+                            <div class="cart-total-row">
+                                <span>Shipping:</span>
+                                <span id="cartShipping">Free</span>
+                            </div>
+                            <div class="cart-total-row cart-total-final">
+                                <span>Total:</span>
+                                <span id="cartTotal">€0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="proceedToCheckout">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div class="page hidden" id="checkoutPage" data-page="checkout">
+            <div class="container">
+                <div class="checkout-content">
+                    <div class="checkout-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Shipping</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Payment</span>
+                        </div>
+                    </div>
+
+                    <div class="checkout-form">
+                        <!-- Step 1: Shipping Information -->
+                        <div class="checkout-step" id="shippingStep">
+                            <h2>Shipping Information</h2>
+                            <form id="shippingForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" name="fullName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Address Line 1</label>
+                                    <input type="text" class="form-control" name="address1">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Address Line 2 (Optional)</label>
+                                    <input type="text" class="form-control" name="address2">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" name="city">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">State/Province</label>
+                                        <input type="text" class="form-control" name="state">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Postal Code</label>
+                                        <input type="text" class="form-control" name="postalCode">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Country</label>
+                                        <select class="form-control" name="country">
+                                            <option value="">Select Country</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="FR">France</option>
+                                            <option value="ES">Spain</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="NL">Netherlands</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" name="phone">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn--primary">Continue to Payment</button>
+                            </form>
+                        </div>
+
+                        <!-- Step 2: Payment Information -->
+                        <div class="checkout-step hidden" id="paymentStep">
+                            <h2>Payment Information</h2>
+                            <form id="paymentForm">
+                                <div class="form-group">
+                                    <label class="form-label">Card Number</label>
+                                    <input type="text" class="form-control" name="cardNumber" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Expiry Date</label>
+                                        <input type="text" class="form-control" name="expiryDate" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">CVV</label>
+                                        <input type="text" class="form-control" name="cvv" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Cardholder Name</label>
+                                    <input type="text" class="form-control" name="cardholderName">
+                                </div>
+                                <div class="order-summary">
+                                    <h3>Order Summary</h3>
+                                    <div id="checkoutOrderSummary"></div>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Place Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thank You Page -->
+        <div class="page hidden" id="thankYouPage" data-page="thankyou">
+            <div class="container">
+                <div class="thank-you-content">
+                    <div class="thank-you-icon">✅</div>
+                    <h1>Thank You for Your Order!</h1>
+                    <p>Your gravity-defying shoes are on their way!</p>
+                    <div class="order-details">
+                        <p><strong>Order Number:</strong> <span id="orderNumber"></span></p>
+                        <div id="orderSummary"></div>
+                    </div>
+                    <div class="redirect-info">
+                        <p id="redirectMessage">Redirecting to home page in <span id="countdown">5</span> seconds...</p>
+                    </div>
+                    <div class="thank-you-actions">
+                        <button class="btn btn--primary btn--lg" id="continueShopping">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>AEROMERGE</h3>
+                    <p>DEFY GRAVITY</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#" data-page="products">All Products</a></li>
+                        <li><a href="#" data-category="sneakers">Sneakers</a></li>
+                        <li><a href="#" data-category="lifestyle">Lifestyle</a></li>
+                        <li><a href="#" data-category="racing">Racing</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 AEROMERGE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
